@@ -16,14 +16,14 @@ for file in *; do
 
     # Check if the file is a regular file (not a directory)
     if [ -f "$file" ]; then
-        # Calculate the new name, replacing "1P Episode" with "One Piece -"
-        new_name=$(echo "$file" | sed 's/1P Episode/One Piece -/')
+        # Replace "One Piece -" with "One Piece - ep"
+        new_name=$(echo "$file" | sed 's/One Piece -/One Piece - ep/')
 
         # Check if renaming is necessary
         if [ "$file" != "$new_name" ]; then
             # Debugging information
             echo "Processing file: $file"
-            
+
             # Rename the file
             mv "$file" "$new_name"
             echo "Renamed: $file -> $new_name"
