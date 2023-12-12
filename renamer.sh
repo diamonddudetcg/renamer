@@ -16,16 +16,24 @@ for file in *; do
 
     # Check if the file is a regular file (not a directory)
     if [ -f "$file" ]; then
-        # Check if the file contains the specified string
-        if grep -q "1P Episode" "$file" > /dev/null 2>&1; then
+        # Calculate the new name, replacing "1P Episode" with "One Piece -"
+        new_name=$(echo "$file" | sed 's/1P Episode/One Piece -/')
+
+        # Check if renaming is necessary
+        if [ "$file" != "$new_name" ]; then
             # Debugging information
             echo "Processing file: $file"
             
-            # Rename the file, replacing "1P Episode" with "One Piece -"
-            new_name=$(echo "$file" | sed 's/1P Episode/One Piece -/')
+            # Rename the file
             mv "$file" "$new_name"
             echo "Renamed: $file -> $new_name"
+        else
+            # Debugging information
+            echo "Left $file alone"
         fi
+    else
+        # Debugging information
+        echo "Skipped $file (not a regular file)"
     fi
 done
 
