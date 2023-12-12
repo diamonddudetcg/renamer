@@ -11,6 +11,9 @@ cd "$script_dir" || exit
 
 # Loop through each file in the current directory
 for file in *; do
+    # Debugging information
+    echo "Entering loop for file: $file"
+
     # Check if the file is a regular file (not a directory)
     if [ -f "$file" ]; then
         # Check if the file contains the specified string
