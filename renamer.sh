@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Get the current directory of the script
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Print the script directory for debugging
+echo "Script directory: $script_dir"
 
 # Change directory to the script directory
 cd "$script_dir" || exit
