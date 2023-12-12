@@ -17,7 +17,7 @@ for file in *; do
     # Check if the file is a regular file (not a directory)
     if [ -f "$file" ]; then
         # Check if the file contains the specified string
-        if grep -q "1P Episode" "$file"; then
+        if grep -q "1P Episode" "$file" > /dev/null 2>&1; then
             # Debugging information
             echo "Processing file: $file"
             
