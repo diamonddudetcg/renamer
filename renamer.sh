@@ -15,6 +15,9 @@ for file in *; do
     if [ -f "$file" ]; then
         # Check if the file contains the specified string
         if grep -q "1P Episode" "$file"; then
+            # Debugging information
+            echo "Processing file: $file"
+            
             # Rename the file, replacing "1P Episode" with "One Piece -"
             new_name=$(echo "$file" | sed 's/1P Episode/One Piece -/')
             mv "$file" "$new_name"
@@ -22,3 +25,5 @@ for file in *; do
         fi
     fi
 done
+
+echo "Script execution complete"
